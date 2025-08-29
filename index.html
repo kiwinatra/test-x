@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestX - Платформа для создания тестов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index_sup.css">
+</head>
+<body class="home-page">
+    
+    <button class="show-nav-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    
+    <nav class="navbar navbar-expand-lg first-section">
+        <div class="container">
+            <a class="navbar-brand" href="#">TestX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero-section">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features-section">Возможности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials-section">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="create-test.html">Создать тест</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="page-container">
+    
+        <section id="hero-section" class="page-section active">
+            <div class="hero d-flex align-items-center min-vh-100">
+                
+                <div class="hero-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+
+                
+                <div id="particles-js"></div>
+
+                <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                           
+                                
+                            <h1 class="hero-title">
+                                    <span class="gradient-text">Создавайте</span>
+                                    <div class="dynamic-text-wrapper">
+                                        <span class="dynamic-text"></span>
+                                        <span class="cursor"></span>
+                                </div>
+                                    <span class="gradient-text">легко и быстро</span>
+                            </h1>
+
+                                <div class="hero-features">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Мгновенная проверка</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Безопасность данных</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Детальная статистика</span>
+                                    </div>
+                                </div>
+
+                    <div class="hero-buttons">
+                        <a href="create-test.html" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Создать тест</span>
+                                        <div class="btn-particles"></div>
+                        </a>
+                        <a href="take-test.html" class="btn btn-outline-primary btn-lg">
+                                        <i class="fas fa-pen"></i>
+                                        <span>Пройти тест</span>
+                        </a>
+                                </div>
+
+                                
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                            <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="hero-image">
+                                    <img src="https://files.enderman.ch/wallpapers/Blacky.jpg" alt="TestX Platform" class="main-image">
+                                    <div class="floating-card card-1">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <span>Аналитика в реальном времени</span>
+                            </div>
+                                    <div class="floating-card card-2">
+                                        <i class="fas fa-users"></i>
+                                        <span>10,000+ пользователей</span>
+                        </div>
+                                    <div class="floating-card card-3">
+                                        <div class="success-circle">
+                                            <i class="fas fa-check"></i>
+                    </div>
+                                        <span>Высокая точность</span>
+                </div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            
+            <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+            
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    
+                    AOS.init();
+
+                    
+                    const words = ['тесты', 'задания', 'опросы'];
+                    let wordIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    const typingSpeed = 100;
+                    const deletingSpeed = 50;
+                    const waitTime = 2000;
+
+                    function type() {
+                        const current = words[wordIndex];
+                        const dynamicText = document.querySelector('.dynamic-text');
+
+                        if (isDeleting) {
+                            dynamicText.textContent = current.substring(0, charIndex - 1);
+                            charIndex--;
+                        } else {
+                            dynamicText.textContent = current.substring(0, charIndex + 1);
+                            charIndex++;
+                        }
+
+                        if (!isDeleting && charIndex === current.length) {
+                            isDeleting = true;
+                            setTimeout(type, waitTime);
+                        } else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            wordIndex = (wordIndex + 1) % words.length;
+                            setTimeout(type, typingSpeed);
+                        } else {
+                            setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+                        }
+                    }
+
+                    
+                    type();
+
+                    
+                    function animateStats() {
+                        const stats = document.querySelectorAll('.stat-number');
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-value'));
+                            let current = 0;
+                            const increment = target / 100;
+                            const duration = 2000;
+                            const step = duration / 100;
+
+                            function updateValue() {
+                                if (current < target) {
+                                    current += increment;
+                                    stat.textContent = Math.round(current).toLocaleString();
+                                    setTimeout(updateValue, step);
+                                } else {
+                                    stat.textContent = target.toLocaleString();
+                                }
+                            }
+
+                            updateValue();
+                        });
+                    }
+
+                    
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: {
+                                value: 50,
+                                density: {
+                                    enable: true,
+                                    value_area: 800
+                                }
+                            },
+                            color: {
+                                value: '#3a86ff'
+                            },
+                            shape: {
+                                type: 'circle'
+                            },
+                            opacity: {
+                                value: 0.5,
+                                random: false
+                            },
+                            size: {
+                                value: 3,
+                                random: true
+                            },
+                            line_linked: {
+                                enable: true,
+                                distance: 150,
+                                color: '#3a86ff',
+                                opacity: 0.4,
+                                width: 1
+                            },
+                            move: {
+                                enable: true,
+                                speed: 2,
+                                direction: 'none',
+                                random: false,
+                                straight: false,
+                                out_mode: 'out',
+                                bounce: false
+                            }
+                        },
+                        interactivity: {
+                            detect_on: 'canvas',
+                            events: {
+                                onhover: {
+                                    enable: true,
+                                    mode: 'grab'
+                                },
+                                onclick: {
+                                    enable: true,
+                                    mode: 'push'
+                                },
+                                resize: true
+                            }
+                        },
+                        retina_detect: true
+                    });
+
+                    
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                animateStats();
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    });
+
+                    observer.observe(document.querySelector('.hero-stats'));
+                });
+            </script>
+        </section>
+
+        
+        <section id="about-section" class="page-section next">
+            <div class="about-section min-vh-100 d-flex align-items-center">
+                
+                <div class="about-bg-animation">
+                    <div class="about-shape about-shape-1"></div>
+                    <div class="about-shape about-shape-2"></div>
+                    <div class="about-shape about-shape-3"></div>
+                </div>
+
+                <div class="container position-relative">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center mb-5">
+                            <br>
+                            
+                            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                                Современное решение для тестирования
+                            </h2>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3>Быстрый старт</h3>
+                                <p>Начните создавать тесты сразу после регистрации. Интуитивно понятный интерфейс не требует специальных навыков.</p>
+                                <div class="about-card-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">2</span>
+                                        <span class="stat-label">минуты</span>
+                            </div>
+                                    <div class="stat-text">на создание теста</div>
+                        </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                <i class="fas fa-palette"></i>
+                                </div>
+                                <h3>Гибкость</h3>
+                                <p>Настраивайте тесты под свои потребности. Различные типы вопросов, временные ограничения и система оценивания.</p>
+                                <div class="about-card-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">4</span>
+                                        <span class="stat-label">типа</span>
+                            </div>
+                                    <div class="stat-text">вопросов</div>
+                        </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                <i class="fas fa-clock"></i>
+                                </div>
+                                <h3>Экономия времени</h3>
+                                <p>Автоматическая проверка и анализ результатов. Мгновенная обратная связь и подробная статистика.</p>
+                                <div class="about-card-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">80%</span>
+                                        <span class="stat-label">быстрее</span>
+                            </div>
+                                    <div class="stat-text">проверка работ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="row mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="600">
+                        <div class="col-lg-8 text-center">
+                            <div class="about-cta">
+                                <h4>Готовы начать?</h4>
+                                <p>Присоединяйтесь к тысячам преподавателей, которые уже используют TestX</p>
+                                <a href="create-test.html" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Создать первый тест
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </section>
+
+        
+        <section id="how-it-works-section" class="page-section next">
+            <div class="how-it-works-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <br>
+                        <h2 class="section-title" data-aos="fade-up">Как это работает</h2>
+                        
+                    </div>
+                    <div class="step-cards">
+                        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="step-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3>Создайте тест</h3>
+                            <p>Быстро. Просто. Эффективно.</p>
+                            <div class="step-particles"></div>
+                        </div>
+                        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="step-icon">
+                                <i class="fas fa-share-nodes"></i>
+                            </div>
+                            <h3>Поделитесь ссылкой</h3>
+                            <p>Один клик. Любое устройство.</p>
+                            <div class="step-particles"></div>
+                        </div>
+                        <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-column"></i>
+                            </div>
+                            <h3>Анализируйте результаты</h3>
+                            <p>Статистика. Графики. Выводы.</p>
+                            <div class="step-particles"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+        <section id="features-section" class="page-section next">
+            <div class="features">
+        <div class="container">
+                    <div class="text-center mb-5">
+                        <br>
+                        <br>
+                        <h2 class="section-title" data-aos="fade-up">Возможности платформы</h2>
+                        
+                    </div>
+                    <div class="feature-cards">
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon">
+                                <i class="fas fa-wand-sparkles"></i>
+                    </div>
+                            <h3>Умный конструктор</h3>
+                            
+                            <div class="feature-stats">
+                                <div class="feature-stat">
+                                    <div class="stat-value">10+</div>
+                                    <div class="stat-label">Типов вопросов</div>
+                </div>
+                                <div class="feature-stat">
+                                    <div class="stat-value">∞</div>
+                                    <div class="stat-label">Возможностей</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                        <h3>Безопасность</h3>
+                            
+                            <div class="feature-stats">
+                                <div class="feature-stat">
+                                    <div class="stat-value">256</div>
+                                    <div class="stat-label">bit SSL</div>
+                    </div>
+                                <div class="feature-stat">
+                                    <div class="stat-value">100%</div>
+                                    <div class="stat-label">Защита</div>
+                </div>
+                            </div>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                        <h3>Аналитика</h3>
+                            
+                            <div class="feature-stats">
+                                <div class="feature-stat">
+                                    <div class="stat-value">15+</div>
+                                    <div class="stat-label">Типов отчетов</div>
+                                </div>
+                                <div class="feature-stat">
+                                    <div class="stat-value">24/7</div>
+                                    <div class="stat-label">Доступ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+        <section id="testimonials-section" class="page-section next">
+            <div class="testimonials-content">
+                <div class="container">
+                    <h2 class="section-title">Отзывы пользователей</h2>
+                    <div class="testimonial-cards" id="testimonialCards">
+                        
+                                </div>
+                            </div>
+                        </div>
+        </section>
+
+        <script>
+            
+            const testimonials = [
+                {
+                    text: "TestX значительно упростил процесс проверки знаний. Теперь я трачу меньше времени на проверку работ и больше внимания уделяю ученикам.",
+                    author: "Анна Петрова",
+                    role: "Учитель математики",
+                    avatar: "https://i.pravatar.cc/150?img=1",
+                    rating: 5
+                },
+                {
+                    text: "Удобный интерфейс и разнообразие типов вопросов позволяют создавать интересные и эффективные тесты для моих студентов.",
+                    author: "Иван Смирнов",
+                    role: "Преподаватель информатики",
+                    avatar: "https://i.pravatar.cc/150?img=2",
+                    rating: 5
+                },
+                {
+                    text: "Отличная платформа для дистанционного обучения. Мои ученики с удовольствием проходят тесты, а мне удобно отслеживать их прогресс.",
+                    author: "Мария Иванова",
+                    role: "Учитель английского языка",
+                    avatar: "https://i.pravatar.cc/150?img=3",
+                    rating: 4
+                },
+                {
+                    text: "TestX помог мне организовать эффективную систему оценки знаний в нашей школе. Рекомендую всем преподавателям!",
+                    author: "Дмитрий Козлов",
+                    role: "Директор школы",
+                    avatar: "https://i.pravatar.cc/150?img=4",
+                    rating: 5
+                },
+                {
+                    text: "Использую платформу для проведения промежуточных аттестаций. Очень удобно и экономит много времени.",
+                    author: "Елена Соколова",
+                    role: "Преподаватель истории",
+                    avatar: "https://i.pravatar.cc/150?img=5",
+                    rating: 4
+                },
+                {
+                    text: "Современный подход к тестированию. Особенно нравится возможность создавать разные типы вопросов и автоматическая проверка.",
+                    author: "Сергей Волков",
+                    role: "Преподаватель физики",
+                    avatar: "https://i.pravatar.cc/150?img=6",
+                    rating: 5
+                }
+            ];
+
+            
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+     
+            function createStars() {
+                const section = document.getElementById('testimonials-section');
+                const numStars = 50;
+
+                for (let i = 0; i < numStars; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    
+                  
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    
+                  
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    
+                   
+                    star.style.animationDelay = `${Math.random() * 2}s`;
+                    
+                    section.appendChild(star);
+                }
+            }
+
+            
+            function generateTestimonialHTML(testimonial) {
+                const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+                return `
+                        <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">${stars}</div>
+                            <p class="testimonial-text">"${testimonial.text}"</p>
+                            <div class="testimonial-author">
+                                <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar">
+                                <div class="author-info">
+                                    <h4>${testimonial.author}</h4>
+                                    <p>${testimonial.role}</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-quote-right quote-icon"></i>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function updateTestimonials() {
+                const container = document.getElementById('testimonialCards');
+                const shuffledTestimonials = shuffleArray([...testimonials]);
+                const selectedTestimonials = shuffledTestimonials.slice(0, 3);
+                
+                container.innerHTML = selectedTestimonials
+                    .map(generateTestimonialHTML)
+                    .join('');
+            }
+
+          
+            document.addEventListener('DOMContentLoaded', () => {
+                createStars();
+                updateTestimonials();
+
+                
+                setInterval(updateTestimonials, 10000); 
+            });
+        </script>
+
+        
+        <section id="footer-section" class="page-section next">
+            <div class="footer-wrapper">
+                <footer class="footer">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3>О платформе</h3>
+                            <ul>
+                                <li><a href="#">О нас</a></li>
+                                <li><a href="#">Блог</a></li>
+                                <li><a href="#">Карьера</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Помощь</h3>
+                            <ul>
+                                <li><a href="FAQ.html">FAQ</a></li>
+                                <li><a href="Documentation.html">Документация</a></li>
+                                <li><a href="Support.html">Поддержка</a></li>
+                                <li><a href="Learning.html">Обучение</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Правовая информация</h3>
+                            <ul>
+                                <li><a href="terms-of-use.html">Условия использования</a></li>
+                                <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                                <li><a href="community-guidelines.html">Правила сообщества</a></li>
+                                <li><a href="security.html">Безопасность</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" title="VK"><i class="fab fa-vk"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 TestX. Все права защищены.</p>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+
+    
+    <div class="nav-arrows">
+        <div class="nav-arrow up disabled">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="nav-arrow down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    
+    <div class="page-indicators">
+        <div class="page-indicator active" data-page="0"></div>
+        <div class="page-indicator" data-page="1"></div>
+        <div class="page-indicator" data-page="2"></div>
+        <div class="page-indicator" data-page="3"></div>
+        <div class="page-indicator" data-page="4"></div>
+        <div class="page-indicator" data-page="5"></div>
+    </div>
+
+    
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" style="height: 20%;"></div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/index_mp1.js"></script>
+    <script src="js/index_mp3.js"></script>
+    <script src="js/index_mp2.js"></script>
+
+
+
+    <div id="mobileWarning" class="mobile-warning">
+        <div class="mobile-warning-content">
+            <h2>⚠️ Сайт недоступен на мобильных устройствах</h2>
+            <p>Данный сайт оптимизирован для просмотра на компьютерах и планшетах.</p>
+            <p>Пожалуйста, откройте сайт на устройстве с большим экраном.</p>
+            <p><small>Текущее разрешение: <span id="resolutionInfo"></span></small></p>
+            
+        </div>
+    </div>
+    
+    <script>
+        function checkScreenSize() {
+            const mobileWarning = document.getElementById('mobileWarning');
+            const resolutionInfo = document.getElementById('resolutionInfo');
+            const content = document.getElementById('content');
+            
+            
+            const windowWidth = window.innerWidth;
+          
+            resolutionInfo.textContent = `${windowWidth} × ${window.innerHeight}px`;
+            
+           
+            if (windowWidth < 768) {
+                mobileWarning.style.display = 'block';
+                content.style.display = 'none';
+            } else {
+                mobileWarning.style.display = 'none';
+                content.style.display = 'block';
+            }
+        }
+
+   
+        window.addEventListener('load', checkScreenSize);
+        
+ 
+        window.addEventListener('resize', checkScreenSize);
+        
+ 
+        window.addEventListener('orientationchange', checkScreenSize);
+    </script>
+    
+</body>
+</html>
